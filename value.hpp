@@ -17,7 +17,7 @@ public:
         return value == other.value;
     }
 
-    // For printing purposes.
+    // for printing purposes.
     friend std::ostream& operator<<(std::ostream& os, const Value& v) {
         os << v.value;
         return os;
