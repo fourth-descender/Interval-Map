@@ -1,2 +1,4 @@
 **/.vscode/
 build/
+value.hpp
+key.hpp

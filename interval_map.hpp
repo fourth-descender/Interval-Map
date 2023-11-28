@@ -3,8 +3,6 @@
 
 #include <map>
 #include <iostream>
-#include "key.hpp"
-#include "value.hpp"
 
 template<typename K, typename V>
 
