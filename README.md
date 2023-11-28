@@ -57,4 +57,4 @@ The space complexity of the `interval_map` class is primarily determined by the 
 
 Additionally, the `m_valBegin` variable, which stores the value associated with intervals that extend to negative infinity, contributes to the overall space complexity. However, its impact is constant, so it does not change the asymptotic space complexity.
 
-In summary, the space complexity of the `interval_map` class is $O(N)$, where N is the number of intervals in the map.
+In summary, the space complexity of the `interval_map` class is $O(N)$, where $N$ is the number of intervals in the map.
