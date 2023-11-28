@@ -1,6 +1,8 @@
 #define CATCH_CONFIG_MAIN
 #include <catch2/catch_test_macros.hpp>
 #include "interval_map.hpp"
+#include "key.hpp"
+#include "value.hpp"
 
 // Test basic functionality of interval_map
 TEST_CASE("Interval Map Tests", "[interval_map]") {
@@ -56,5 +58,19 @@ TEST_CASE("Interval Map Tests", "[interval_map]") {
         interval_map<int, std::string> otherMap("default");
 
         REQUIRE(myMap == otherMap);
+    }
+
+    SECTION("Custom Key and Value Types") {
+        interval_map<Key, Value> myMap(Value(0));
+
+        myMap.assign(Key(0), Key(5), Value(1));
+        myMap.assign(Key(5), Key(10), Value(2));
+        myMap.assign(Key(10), Key(15), Value(3));
+
+        REQUIRE(myMap[Key(-1)] == Value(0));
+        REQUIRE(myMap[Key(2)] == Value(1));
+        REQUIRE(myMap[Key(7)] == Value(2));
+        REQUIRE(myMap[Key(12)] == Value(3));
+        REQUIRE(myMap[Key(17)] == Value(0));
     }
 }
