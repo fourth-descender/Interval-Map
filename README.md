@@ -1,6 +1,6 @@
-# IntervalMap
+# Interval-Map
 
-IntervalMap is a C++ implementation of an interval map data structure. It allows you to associate values with intervals and perform efficient lookups based on a key within those intervals.
+Interval-Map is a C++ implementation of an interval map data structure. It allows you to associate values with intervals and perform efficient lookups based on a key within those intervals.
 
 ## Building the Project
 
