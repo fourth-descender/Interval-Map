@@ -12,16 +12,6 @@ class interval_map {
     private:
         std::map<K, V> m_map;
         V m_valBegin;
-    public:
-        interval_map(V const& val)
-            : m_valBegin(val)
-            {};
-
-        // look-up value at key.
-        V const& operator[](K const& key) const {
-            auto it = m_map.upper_bound(key);
-            return (it == m_map.begin()) ? m_valBegin : (--it)->second;
-        };
 
         // gets the value left of key.
         V const& lSearch(K const& key) const {
@@ -40,6 +30,17 @@ class interval_map {
             } 
 
             return it->second;
+        };
+        
+    public:
+        interval_map(V const& val)
+            : m_valBegin(val)
+            {};
+
+        // look-up value at key.
+        V const& operator[](K const& key) const {
+            auto it = m_map.upper_bound(key);
+            return (it == m_map.begin()) ? m_valBegin : (--it)->second;
         };
 
         void assign(K const& KeyBegin, K const& KeyEnd, V const& value) {
