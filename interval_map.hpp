@@ -41,6 +41,11 @@ class interval_map {
             return (it == m_map.begin()) ? m_valBegin : (--it)->second;
         };
 
+        // for testing purposes.
+        bool operator==(interval_map const& other) const {
+            return m_map == other.m_map;
+        };
+
         void assign(K const& KeyBegin, K const& KeyEnd, V const& value) {
             if (!(KeyBegin < KeyEnd)) {
                 return;
@@ -72,7 +77,7 @@ class interval_map {
             m_map.emplace(std::make_pair(KeyEnd, rightVal));
         }
 
-        // For testing purposes.
+        // for testing purposes.
         void print_map() {
             bool first = true;
             std::cout << "{";

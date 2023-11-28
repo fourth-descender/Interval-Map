@@ -44,16 +44,17 @@ TEST_CASE("Interval Map Tests", "[interval_map]") {
         interval_map<int, std::string> myMap("default");
 
         myMap.assign(0, 5, "A");
-        myMap.assign(5, 10, "B");
-        myMap.assign(2, 8, "B");
+        myMap.assign(0, 2, "default");
+        myMap.assign(5, 12, "B");
+        myMap.assign(2, 9, "B");
+        myMap.assign(5, 12, "B");
+        myMap.assign(7, 9, "default");
+        myMap.assign(9, 12, "default");
+        myMap.assign(2, 9, "default");
 
-        REQUIRE(myMap[-1] == "default");
-        REQUIRE(myMap[0] == "A");
-        REQUIRE(myMap[1] == "A");
-        REQUIRE(myMap[2] == "B");
-        REQUIRE(myMap[7] == "B");
-        REQUIRE(myMap[9] == "B");
-        REQUIRE(myMap[10] == "default");
-        REQUIRE(myMap[12] == "default");
+        // Expected result:
+        interval_map<int, std::string> otherMap("default");
+
+        REQUIRE(myMap == otherMap);
     }
 }
